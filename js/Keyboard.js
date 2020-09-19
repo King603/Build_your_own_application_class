@@ -1,91 +1,124 @@
-/** 键盘按钮 */
-class Keyboard {
-  UP = 38;
-  DOWN = 40;
-  RIGHT = 39;
-  LEFT = 37;
+/**
+ * 键盘按钮
+ * 由于KeyboardEvent.keyCode官方已废弃，部分游览器还可以使用，
+ * 现转化为KeyboardEvent.code的方式。
+ * 
+ * 转化为此方式后方便对应取值。
+ */
+export const Keys = (() => ({
+  UP: "ArrowUp",
+  DOWN: "ArrowDown",
+  RIGHT: "ArrowRight",
+  LEFT: "ArrowLeft",
 
-  SPACE = 32;
-  TAB = 9;
-  SHIFT = 16;
-  ENTER = 13;
-  CTRL = 17;
-  ALT = 18;
-  ESC = 27;
+  Space: "Space",
+  Tab: "Tab",
+  Shift: set("ShiftLeft", "ShiftRight"),
 
-  HOME = 36;
-  END = 35;
-  PAGE_UP = 33;
-  PAGE_DOWN = 34;
+  Enter: "Enter",
+  Ctrl: set("CtrlLeft", "CtrlRight"),
+  Alt: set("AltLeft", "AltRight"),
+  Bracket: set("BracketLeft", "BracketRight"),
+  WIN: set("OSLeft", "OSRight"),
+  Esc: "Escape",
+  Menu: "ContextMenu",
+  CapsLock: "CapsLock",
+  Backspace: "Backspace",
+  "=": "Equal",
+  "-": "Minus",
+  ";": "Semicolon",
+  "'": "Quote",
+  "|": "Backslash",
+  ",": "Comma",
+  ".": "Period",
+  "/": "Slash",
+  "`": "Backquote",
 
-  Num0 = 48;
-  Num1 = 49;
-  Num2 = 50;
-  Num3 = 51;
-  Num4 = 52;
-  Num5 = 53;
-  Num6 = 54;
-  Num7 = 55;
-  Num8 = 56;
-  Num9 = 57;
+  Insert: "Insert",
+  Delete: "Delete",
+  Home: "Home",
+  End: "End",
+  PageUp: "PageUp",
+  PageDown: "PageDown",
 
-  A = 65;
-  B = 66;
-  C = 67;
-  D = 68;
-  E = 69;
-  F = 70;
-  G = 71;
-  H = 72;
-  I = 73;
-  J = 74;
-  K = 75;
-  L = 76;
-  M = 77;
-  N = 78;
-  O = 79;
-  P = 80;
-  Q = 81;
-  R = 82;
-  S = 83;
-  T = 84;
-  U = 85;
-  V = 86;
-  W = 87;
-  X = 88;
-  Y = 89;
-  Z = 90;
+  Num0: "Digit0",
+  Num1: "Digit1",
+  Num2: "Digit2",
+  Num3: "Digit3",
+  Num4: "Digit4",
+  Num5: "Digit5",
+  Num6: "Digit6",
+  Num7: "Digit7",
+  Num8: "Digit8",
+  Num9: "Digit9",
 
-  SMALL_0 = 96;
-  SMALL_1 = 97;
-  SMALL_2 = 98;
-  SMALL_3 = 99;
-  SMALL_4 = 100;
-  SMALL_5 = 101;
-  SMALL_6 = 102;
-  SMALL_7 = 103;
-  SMALL_8 = 104;
-  SMALL_9 = 105;
+  A: "KeyA",
+  B: "KeyB",
+  C: "KeyC",
+  D: "KeyD",
+  E: "KeyE",
+  F: "KeyF",
+  G: "KeyG",
+  H: "KeyH",
+  I: "KeyI",
+  J: "KeyJ",
+  K: "KeyK",
+  L: "KeyL",
+  M: "KeyM",
+  N: "KeyN",
+  O: "KeyO",
+  P: "KeyP",
+  Q: "KeyQ",
+  R: "KeyR",
+  S: "KeyS",
+  T: "KeyT",
+  U: "KeyU",
+  V: "KeyV",
+  W: "KeyW",
+  X: "KeyX",
+  Y: "KeyY",
+  Z: "KeyZ",
 
-  "*" = 106;
-  "+" = 107;
-  "-" = 109;
-  "." = 110;
-  "/" = 111;
+  small: {
+    Num0: "Numpad0",
+    Num1: "Numpad1",
+    Num2: "Numpad2",
+    Num3: "Numpad3",
+    Num4: "Numpad4",
+    Num5: "Numpad5",
+    Num6: "Numpad6",
+    Num7: "Numpad7",
+    Num8: "Numpad8",
+    Num9: "Numpad9",
+    NumLock: "NumLock",
+    Enter: "NumpadEnter",
+    "*": "NumpadMultiply",
+    "+": "NumpadAdd",
+    "-": "NumpadSubtract",
+    ".": "NumpadDecimal",
+    "/": "NumpadDivide",
+  },
 
-  F1 = 112;
-  F2 = 113;
-  F3 = 114;
-  F4 = 115;
+  F1: "F1",
+  F2: "F2",
+  F3: "F3",
+  F4: "F4",
 
-  F5 = 116;
-  F6 = 117;
-  F7 = 118;
-  F8 = 119;
+  F5: "F5",
+  F6: "F6",
+  F7: "F7",
+  F8: "F8",
 
-  F9 = 120;
-  F10 = 121;
-  F11 = 122;
-  F12 = 123;
+  F9: "F9",
+  F10: "F10",
+  F11: "F11",
+  F12: "F12",
+}))();
+
+/** 
+ * @param {string} Left 
+ * @param {string} Right 
+ */
+function set(Left, Right) {
+  return { Left, Right };
 }
-export let Keys = new Keyboard();
